@@ -1,0 +1,29 @@
+{
+  "name": "onesignal",
+  "version": "0.0.1",
+  "description": "Wrapper module for OneSignal push notification delivery",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faressoft/onesignal.git"
+  },
+  "keywords": [
+    "push",
+    "notification",
+    "onesignal",
+    "one-signal",
+    "one signal",
+    "one",
+    "signal",
+    "android",
+    "ios",
+    "gcm",
+    "apns",
+    "wrapper",
+    "api"
+  ],
+  "author": "Mohammad Fares <faressoft.com@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}
