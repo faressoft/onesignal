@@ -4,11 +4,11 @@
 [![npm](https://img.shields.io/npm/l/onesignal.svg)](https://github.com/faressoft/onesignal/blob/master/LICENSE)
 
 <p align="center">
-![Logo](/logo.png?raw=true)
+<img src="/logo.png?raw=true" alt="OneSignal Logo"/>
 </p>
 
 <p align="center">
-A Wrapper for   [OneSignal](https://onesignal.com) Push Notification Delivery for Node.js. Provides the minimal functionality to send notifications for **iOS** and **Android**.
+A Wrapper for <a href="https://onesignal.com">OneSignal</a> Push Notification Delivery for Node.js. Provides the minimal functionality to send notifications for **iOS** and **Android**.
 </p>
 
 # Installation
