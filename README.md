@@ -21,16 +21,16 @@ npm install onesignal --save
 
 ```js
 // Create a client object
-var oneSignal = require('onesignal')('[apiKey]', '[appID]', true);
+var oneSignal = require('onesignal')('[apiKey]', '[appId]', true);
 ```
 
-## OneSignal(apiKey, appID, sandbox)
+## OneSignal(apiKey, appId, sandbox)
 One Signal Client
 
 | Param | Type | Description |
 | --- | --- | --- |
 | apiKey | <code>String</code> | REST API Key |
-| appID | <code>String</code> | OneSignal App ID |
+| appId | <code>String</code> | OneSignal App ID |
 | sandbox | <code>Boolean</code> | use the sandbox certificate for iOS (default: false) |
 
 ## Methods

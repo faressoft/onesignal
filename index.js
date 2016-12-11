@@ -10,10 +10,10 @@ var request = require('request');
  * One Signal Client
  *
  * @param  {String}  apiKey  REST API Key
- * @param  {String}  appID   OneSignal App ID
+ * @param  {String}  appId   OneSignal App ID
  * @param  {Boolean} sandbox use the sandbox certificate for iOS (default: false)
  */
-function OneSignal(apiKey, appID, sandbox) {
+function OneSignal(apiKey, appId, sandbox) {
 
   // Default value for sandbox argument
   if (typeof sandbox === 'undefined') {
@@ -30,7 +30,7 @@ function OneSignal(apiKey, appID, sandbox) {
    * The app id of Signal One
    * @type {String}
    */
-  const APP_ID = appID;
+  const APP_ID = appId;
 
   /**
    * Use sandbox certificate
@@ -192,12 +192,12 @@ function OneSignal(apiKey, appID, sandbox) {
  * Create a new client
  * 
  * @param  {String}  apiKey  REST API Key
- * @param  {String}  appID   OneSignal App ID
+ * @param  {String}  appId   OneSignal App ID
  * @param  {Boolean} sandbox use the sandbox certificate for iOS (default: false)
  * @return {Object}          new instance of one signal client wrapper
  */
-module.exports = function(apiKey, appID, sandbox) {
+module.exports = function(apiKey, appId, sandbox) {
     
-  return new OneSignal(apiKey, appID, sandbox);
+  return new OneSignal(apiKey, appId, sandbox);
 
 };
