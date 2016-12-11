@@ -1,6 +1,6 @@
 {
   "name": "onesignal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Wrapper module for OneSignal push notification delivery",
   "repository": {
     "type": "git",
