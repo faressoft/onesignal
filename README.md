@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-A Wrapper for <a href="https://onesignal.com">OneSignal</a> Push Notification Delivery for Node.js. Provides the minimal functionality to send notifications for **iOS** and **Android**.
+A Wrapper for <a href="https://onesignal.com">OneSignal</a> Push Notification Delivery for Node.js. Provides the minimal functionality to send notifications for <strong>iOS</strong> and <strong>Android</strong>.
 </p>
 
 # Installation
