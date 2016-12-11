@@ -73,11 +73,11 @@ Update the identifier of an existing device.
 Create and send a notification.
 
 
-| Param | Type |
-| --- | --- |
-| message | <code>String</code> | 
-| data | <code>Object</code> | 
-| oneSignalIds | <code>Array</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| message | <code>String</code> | the notification message | 
+| data | <code>Object</code> | any custom data | 
+| oneSignalIds | <code>Array</code> | a list of OneSignal devices ids | 
 
 # License
 

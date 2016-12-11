@@ -110,8 +110,8 @@ function OneSignal(apiKey, appId, sandbox) {
   /**
    * Update the identifier of an existing device
    * 
-   * @param  {String} oneSignalId the one signal device id
-   * @param  {String} newIdentifier  the new device token
+   * @param  {String} oneSignalId   the one signal device id
+   * @param  {String} newIdentifier the new device token
    * @return {Promise}
    */
   this.editDevice = function(oneSignalId, newIdentifier) {
@@ -145,9 +145,9 @@ function OneSignal(apiKey, appId, sandbox) {
   /**
    * Create and send a notification
    * 
-   * @param  {String} message
-   * @param  {Object} data
-   * @param  {Array}  oneSignalIds
+   * @param  {String} message      the notification message
+   * @param  {Object} data         any custom data
+   * @param  {Array}  oneSignalIds a list of OneSignal devices ids
    * @return {Promise}
    */
   this.createNotification = function(message, data, oneSignalIds) {
