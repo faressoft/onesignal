@@ -145,7 +145,7 @@ function OneSignal(apiKey, appId, sandbox) {
   /**
    * Create and send a notification
    *
-   * @param  {String} params       OneSignal parameters
+   * @param  {String|Object} params OneSignal parameters or message
    * @param  {Object} data         any custom data
    * @param  {Array}  oneSignalIds a list of OneSignal devices ids
    * @return {Promise}
@@ -163,17 +163,7 @@ function OneSignal(apiKey, appId, sandbox) {
       }
     }
     else {
-      params = params || {};
-
-      if (params.message) {
-        body.contents = {
-          en: params.message
-        }
-      }
-
-      if (params.template_id) {
-        body.template_id = params.template_id;
-      }
+      Object.assign(body, params);
     }
 
     var options = {
