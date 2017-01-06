@@ -1,6 +1,6 @@
 /**
  * Wrapper for One Signal Push Notification Delivery
- * 
+ *
  * @author Mohammad Fares <faressoft.com@gmail.com>
  */
 
@@ -40,7 +40,7 @@ function OneSignal(apiKey, appId, sandbox) {
 
   /**
    * Handle resolving or rejecting One Signal response
-   * 
+   *
    * @param  {Object}   error
    * @param  {Object}   response
    * @param  {String}   body
@@ -60,12 +60,12 @@ function OneSignal(apiKey, appId, sandbox) {
     }
 
     resolve(body);
-    
+
   }
 
   /**
    * Register a new device and its identifier to OneSignal and get OneSignal ID
-   * 
+   *
    * @param  {String} identifier the device token
    * @param  {String} osType     ios, android
    * @return {Promise}           resolve with OneSignal ID
@@ -73,14 +73,14 @@ function OneSignal(apiKey, appId, sandbox) {
   this.addDevice = function(identifier, osType) {
 
     var deviceType = osType == 'ios' ? 0 : 1;
-    
+
     var options = {
       method: 'POST',
       url: 'https://onesignal.com/api/v1/players',
-      headers: { 
+      headers: {
         authorization: 'Basic ' + API_KEY,
         'cache-control': 'no-cache',
-        'content-type': 'application/json; charset=utf-8' 
+        'content-type': 'application/json; charset=utf-8'
       },
       body: JSON.stringify({
         app_id: APP_ID,
@@ -92,11 +92,11 @@ function OneSignal(apiKey, appId, sandbox) {
     };
 
     return new Promise(function(resolve, reject) {
-      
+
       request(options, function(error, response, body) {
 
         responseHandle(error, response, body, reject, function(body) {
-          
+
           resolve(body.id);
 
         });
@@ -109,7 +109,7 @@ function OneSignal(apiKey, appId, sandbox) {
 
   /**
    * Update the identifier of an existing device
-   * 
+   *
    * @param  {String} oneSignalId   the one signal device id
    * @param  {String} newIdentifier the new device token
    * @return {Promise}
@@ -119,10 +119,10 @@ function OneSignal(apiKey, appId, sandbox) {
     var options = {
       method: 'PUT',
       url: 'https://onesignal.com/api/v1/players/' + oneSignalId,
-      headers: { 
+      headers: {
         authorization: 'Basic ' + API_KEY,
         'cache-control': 'no-cache',
-        'content-type': 'application/json; charset=utf-8' 
+        'content-type': 'application/json; charset=utf-8'
       },
       body: JSON.stringify({
         app_id: APP_ID,
@@ -131,7 +131,7 @@ function OneSignal(apiKey, appId, sandbox) {
     };
 
     return new Promise(function(resolve, reject) {
-      
+
       request(options, function(error, response, body) {
 
         responseHandle(error, response, body, reject, resolve);
@@ -144,34 +144,51 @@ function OneSignal(apiKey, appId, sandbox) {
 
   /**
    * Create and send a notification
-   * 
-   * @param  {String} message      the notification message
+   *
+   * @param  {String} params       OneSignal parameters
    * @param  {Object} data         any custom data
    * @param  {Array}  oneSignalIds a list of OneSignal devices ids
    * @return {Promise}
    */
-  this.createNotification = function(message, data, oneSignalIds) {
+  this.createNotification = function(params, data, oneSignalIds) {
+    var body = {
+      app_id: APP_ID,
+      include_player_ids: oneSignalIds,
+      data: data
+    };
+
+    if (typeof params == 'string') {
+      body.contents = {
+        en: params
+      }
+    }
+    else {
+      params = params || {};
+
+      if (params.message) {
+        body.contents = {
+          en: params.message
+        }
+      }
+
+      if (params.template_id) {
+        body.template_id = params.template_id;
+      }
+    }
 
     var options = {
       method: 'POST',
       url: 'https://onesignal.com/api/v1/notifications',
-      headers: { 
+      headers: {
         authorization: 'Basic ' + API_KEY,
         'cache-control': 'no-cache',
-        'content-type': 'application/json; charset=utf-8' 
+        'content-type': 'application/json; charset=utf-8'
       },
-      body: JSON.stringify({
-        app_id: APP_ID,
-        include_player_ids: oneSignalIds,
-        contents: {
-          en: message
-        },
-        data: data
-      })
+      body: JSON.stringify(body)
     };
 
     return new Promise(function(resolve, reject) {
-      
+
       request(options, function(error, response, body) {
 
         responseHandle(error, response, body, reject, resolve);
@@ -181,7 +198,7 @@ function OneSignal(apiKey, appId, sandbox) {
     });
 
   };
-  
+
 }
 
 ////////////////////////////////////////////////////
@@ -190,14 +207,14 @@ function OneSignal(apiKey, appId, sandbox) {
 
 /**
  * Create a new client
- * 
+ *
  * @param  {String}  apiKey  REST API Key
  * @param  {String}  appId   OneSignal App ID
  * @param  {Boolean} sandbox use the sandbox certificate for iOS (default: false)
  * @return {Object}          new instance of one signal client wrapper
  */
 module.exports = function(apiKey, appId, sandbox) {
-    
+
   return new OneSignal(apiKey, appId, sandbox);
 
 };
