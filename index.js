@@ -145,7 +145,7 @@ function OneSignal(apiKey, appId, sandbox) {
   /**
    * Create and send a notification
    *
-   * @param  {String|Object} params OneSignal parameters or message
+   * @param  {String|Object} params OneSignal parameters or the notification message
    * @param  {Object} data         any custom data
    * @param  {Array}  oneSignalIds a list of OneSignal devices ids
    * @return {Promise}
@@ -158,9 +158,7 @@ function OneSignal(apiKey, appId, sandbox) {
     };
 
     if (typeof params == 'string') {
-      body.contents = {
-        en: params
-      }
+      body.contents = { en: params };
     }
     else {
       Object.assign(body, params);
