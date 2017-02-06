@@ -153,9 +153,12 @@ function OneSignal(apiKey, appId, sandbox) {
   this.createNotification = function(params, data, oneSignalIds) {
     var body = {
       app_id: APP_ID,
-      include_player_ids: oneSignalIds,
       data: data
     };
+
+    if (oneSignalIds) {
+      body.include_player_ids = oneSignalIds
+    }
 
     if (typeof params == 'string') {
       body.contents = { en: params };
