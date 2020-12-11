@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/l/onesignal.svg)](https://github.com/faressoft/onesignal/blob/master/LICENSE)
 
 <p align="center">
-<img src="/logo.png?raw=true" alt="OneSignal Logo"/>
+<img src="/logo.png?raw=true" alt="OneSignal Logo" width="300" />
 </p>
 
 <p align="center">
