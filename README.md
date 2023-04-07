@@ -1,10 +1,10 @@
-# One Signal
+# OneSignal
 
 [![npm](https://img.shields.io/npm/v/onesignal.svg)](https://www.npmjs.com/package/onesignal)
 [![npm](https://img.shields.io/npm/l/onesignal.svg)](https://github.com/faressoft/onesignal/blob/master/LICENSE)
 
 <p align="center">
-<img src="/logo.png?raw=true" alt="OneSignal Logo" width="300" />
+<img src="/logo.png?raw=true" alt="OneSignal Logo" height="100" />
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@ var oneSignal = require('onesignal')('[apiKey]', '[appId]', true);
 ```
 
 ## OneSignal(apiKey, appId, sandbox)
-One Signal Client
+OneSignal Client
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ Update the identifier of an existing device.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| oneSignalId | <code>String</code> | the one signal device id |
+| oneSignalId | <code>String</code> | the onesignal device id |
 | newIdentifier | <code>String</code> | the new device token |
 
 <a name="createNotification"></a>
